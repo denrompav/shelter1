@@ -48,3 +48,7 @@ header ul{
 	top: 0;
 	bottom: 0;
 }
+
+body {
+ background: red;
+}
