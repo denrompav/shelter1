@@ -8,7 +8,7 @@ var config = {
 	
    devServer: {
       inline: true,
-      host: "192.168.1.3",
+      /*host: "192.168.1.2",*/
       port: 8081
    },
 	
