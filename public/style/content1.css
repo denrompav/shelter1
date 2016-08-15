@@ -1,0 +1,112 @@
+.content-container{
+	border-radius: 3px;
+	width:84%; 
+	height:300px;
+	margin:20px auto; 
+	background: rgba(51,51,51,0.5);
+	background:url(image/dog.jpg)no-repeat;
+	background-position: 50% 20%;
+	background-size: cover;
+	box-shadow:0 0 10px #212425; 
+}
+
+.opacity-container{
+	background-color: #0c0d0d;
+	width:100%;
+	height:inherit;
+ 	opacity: 0.5; 
+	
+
+}
+.text-container{
+
+ 
+	
+}
+.text-h{
+	color:white;
+	 text-align: center; 
+	 line-height: 250px; 
+	 display: block; 
+  font-size: 32px;
+  
+}
+.text-p{
+	color:white;
+	margin-top: -70px;
+	text-align: center;
+	font-size: 18px;
+	
+}
+.text-p2{
+	color:white;
+	margin:18px;
+	text-align: center;
+}
+
+.content-btn li{
+	display: inline-block;	
+}
+
+.content-btn{
+	width:300px;
+	margin:30px auto;
+}
+
+.btn-about_us {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.btn-urgently {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    text-decoration: none;
+    border-radius:10px; 
+
+   
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.btn-urgently :hover{
+	background:#e74635;
+	color:white;
+}
+
+.btn-urgently:active{
+	background: #ff0000;
+}
+
+.btn-about_us:hover{
+	background: rgb(53, 167, 110);
+
+}
+.btn-about_us:active{
+	background: rgb(33,147,90);
+}
