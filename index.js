@@ -2,8 +2,10 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var fs = require('fs');
-app.use(bodyParser.urlencoded({ extended: true }));
 var session = require('express-session')
+app.set('views', __dirname + "\\public\\views")
+app.set('view engine', 'jade');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({ secret: 'keyboard cat'}));
 
@@ -35,6 +37,10 @@ app.post('/new_user',function(request,response){
 	request.session.first_name = request.body.first_name
 	response.sendFile(__dirname + "/public/index.html");
 	console.log(request.session)
+});
+
+app.get('/sidr', function (req, res) {
+  res.render('sidr');
 });
 
 app.listen(8000, function () {
