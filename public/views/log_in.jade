@@ -1,0 +1,50 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Shelter
+    link(rel='stylesheet', type='text/css', href='style/main.css')
+    link(rel='stylesheet', type='text/css', href='style/register.css')
+    link(rel='stylesheet', type='text/css', href='style/logIn.css')
+  body
+    header.header-fixed.clearfix.fixed
+      .nav-links
+        ul
+          li.nav-link--log
+            a.nav-size--logo(href='/') Shelter
+          li
+            a.size(href='#') Тварини
+          li
+            a.size(href='#') Оголошення
+      .sociable-links
+        ul
+          li
+            a.sociable-button--sign_in.btn(href='#') Увійти
+          li.sociable-link--btn
+            a.sociable-button--register.btn(href='/register') Зареєструватись
+    .panel-container
+      .panel-heading
+        h3
+          | Sign in
+      .panel-body
+        form(method='post', action='')
+          .form-group
+            label(for='sign_in-email')
+              p Email:
+            input#sign_in-email.form-control(type='email', placeholder='Yor email', required='')
+          .form-group
+            label(for='sign_in-password')
+              p Password
+            input.form-control(type='password', name='password', placeholder='Yor password', required='')
+          .form-group
+            section(title='.squaredFour')
+              // .squaredFour
+              .squaredFour
+                input#squaredFour(type='checkbox', value='None', name='check', checked='')
+                label(for='squaredFour')      remember me?
+          input.btn.btn-register--acaunt(type='submit', name='commit', value='Sign In')
+      ul.hover
+        li
+          a(href='/forgot_password') Забули пароль?
+        li
+          a(href='/register') Зареєструватись

@@ -37,10 +37,15 @@ app.post('/new_user',function(request,response){
 	request.session.first_name = request.body.first_name
 	response.sendFile(__dirname + "/public/index.html");
 	console.log(request.session)
+  
 });
 
 app.get('/sidr', function (req, res) {
   res.render('sidr');
+});
+
+app.get('/animals', function (req, res) {
+  res.render('animals');
 });
 
 app.listen(8000, function () {

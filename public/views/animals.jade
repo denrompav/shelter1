@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Shelter
+    link(rel='stylesheet', type='text/css', href='style/main.css')
+    link(rel='stylesheet', type='text/css', href='style/animals.css')
+  body
+    header.header-fixed.clearfix
+      .nav-links
+        ul
+          li.nav-link--log
+            a.nav-size--logo(href='/') Shelter
+          li
+            a.size(href='/animals') Тварини
+          li
+            a.size(href='#') Оголошення
+      .sociable-links
+        ul
+          li
+            a.sociable-button--sign_in.btn(href='/login') Увійти
+          li.sociable-link--btn
+            a.sociable-button--register.btn(href='/register') Зареєструватись
+    .content-container
+      h2  Оголошення тварин
+      h6
+        | Для того щоб додати свою тварину,спершу 
+        a.btn-h6(href='/register') Зарегіструйтесь
+        | ,після цього
+        a.btn-h6(href='#')
+          | добавте тваринку
+        .animals-container
+          .animals-pattern
+            .animal-header
+              .animal-user--avatar
+                img(src='')
+                | Avatar
+              .animal-user--name
+                | Denus Romanchuk
+            .animal-pet--section
+              .animal-pet--avatar
+              .animal-pet--info
+                span.pet-name Corso
+                ul.pet-info
+                  li
+                    p Вік
+                    p 2
+                  li
+                    p Стать
+                    p Вона
+                  li
+                    p Порода
+                    p Дворняга
