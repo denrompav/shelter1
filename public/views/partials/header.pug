@@ -1,0 +1,20 @@
+header.header-fixed.clearfix
+  .nav-links
+    ul
+      li.nav-link--log
+        a.nav-size--logo(href='/') Shelter
+      li
+        a.size(href='/animals') Тварини
+      li
+        a.size(href='#') Оголошення
+  .sociable-links
+    if currentUser
+      - currentUser
+      span.user-first_name.user-last_name #{currentUser.first_name}
+      a.btn.btn-logout(href='/logout') Logout
+    else
+      ul
+        li
+          a.sociable-button--sign_in.btn(href='/login') Увійти
+        li.sociable-link--btn
+          a.sociable-button--register.btn(href='/register') Зареєструватись

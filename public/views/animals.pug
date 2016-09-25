@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Shelter
+    link(rel='stylesheet', type='text/css', href='style/main.css')
+    link(rel='stylesheet', type='text/css', href='style/animals.css')
+  body
+    include partials/header.pug
+    .content-container
+      h2  Оголошення тварин
+      h6
+        | Для того щоб додати свою тварину,спершу 
+        a.btn-h6(href='/register') Зарегіструйтесь
+        | ,після цього
+        a.btn-h6(href='#')
+          | добавте тваринку
+        .animals-container
+          include partials/animals-pattern.pug

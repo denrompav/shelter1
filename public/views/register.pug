@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Shelter
+    link(rel='stylesheet', type='text/css', href='style/main.css')
+    link(rel='stylesheet', type='text/css', href='style/register.css')
+  body
+    include partials/header.pug
+    .panel-container
+      .panel-heading
+        h3
+          | Регістрація акаунту
+      .panel-body
+        form.comment-form(method='post', action='/users')
+          .form-group
+            label(for='email-field')
+              p Емейл:
+              p
+            input#email-field.form-control(type='email', name='email', placeholder='Your email', required='')
+          .form-group
+            label(for='name-field')
+              p Ім'я:
+            input#name-field.form-control(type='name', name='first_name', required='', placeholder='Your name')
+          .form-group
+            label(for='last_name-field')
+              p Прізвище:
+            input#last_name-field.form-control(type='last_name', name='last_name', placeholder='Your last name')
+          
+          .form-group
+            label(for='number-phone')
+              p Ваш номер телефону:
+            input#number-phone.form-control(type='number', name='number', placeholder='Введіть номер телефону ', required='')
+            label(for='password-field')
+              p Пароль:
+            input#password-field.form-control(type='password', name='password', placeholder='Введіть пароль', required='')
+          .form-group
+            label(for='password-field-true')
+              p Підтвердження Пароля:
+            input#password-field-true.form-control(type='password', name='password', placeholder='Ввeдіть ще раз пароль', required='')
+          input.btn.btn-register--acaunt(type='submit', name='commit', value='Зареєструвати акаунт')
+      ul.hover
+        li
+          a(href='/forgot_password') Забули пароль?
+        li
+          a(href='/login') Увійти

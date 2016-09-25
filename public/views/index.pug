@@ -1,0 +1,85 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Shelter
+    link(rel='stylesheet', type='text/css', href='bt/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='style/main.css')
+    link(rel='stylesheet', type='text/css', href='style/content1.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $("a.ancLinks").click(function () {
+      var elementClick = $(this).attr("href");
+      var destination = $(elementClick).offset().top;
+      $('html,body').animate( { scrollTop: destination }, 1100 );
+      return false;
+      });
+      });
+  body
+    include partials/header.pug
+    .block-container.background-white
+      .content-container
+        .opacity-container
+          .text-container
+            h1.text-h Вітаємо Вас у Shelter!
+            p.text-p І у людей, і у собак одне бажання — бути коханими. 
+            br
+            p.text-p2 Пам'ятайте про це.
+      .content-btn
+        ul
+          li.btn-about_us
+            a#menu.btn-about_us.btn(href='#my') Про нас
+          li.btn-urgently
+            a.btn-urgently.btn(href='#') Термінові оголошення!
+    .block-container
+    .block-container.fixed-position
+      #myCarousel.carousel.slide(data-interval='3000', data-ride='carousel')
+        // Индикаторы для карусели
+        ol#scroll.carousel-indicators
+          // Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0"
+          li.active(data-target='#myCarousel', data-slide-to='0')
+          // Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1"
+          li(data-target='#myCarousel', data-slide-to='1')
+          // Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2"
+          li(data-target='#myCarousel', data-slide-to='2')
+        // Слайды карусели
+        .carousel-inner
+          // Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда
+          .active.item.foto
+            h2
+            .carousel-caption
+              h3 -Я чекаю на тебе...
+              p
+          // Слайд №2
+          .item.foto2
+            h2
+            .carousel-caption
+              h3 -Я мурчатиму для тебе.
+              p
+          // Слайд №3
+          .item.foto3
+            h2    
+            .carousel-caption
+              h3 -Я тебе не кину
+              p
+        // Навигация для карусели
+        // Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev"
+        a.carousel-control.left(href='#myCarousel', data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left
+        // Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next"
+        a.carousel-control.right(href='#myCarousel', data-slide='next')
+          span.glyphicon.glyphicon-chevron-right
+      .about-container
+        .about-container--column
+          span.about-title Чим ми займаємось?
+          p.about-us safasfasfsa
+        .about-container--column
+          span.about-title Що ви тут можете знайти?
+          p.about-us dfdfdsfdsfds
+        .about-container--column
+          span.about-title Як ви можете нам допомогти?
+          p.about-us
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='bt/js/bootstrap.min.js')
+    #my(name='myDiv')
