@@ -111,3 +111,9 @@
 .btn-about_us:active{
 	background: rgb(33,147,90);
 }
+
+p.about-us{
+	padding:0px;
+	font-size:12px;
+
+}
