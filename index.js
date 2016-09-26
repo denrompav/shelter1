@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(session({ secret: 'keyboard cat'}));
-mongoose.connect('mongodb://localhost/my_databasee');
+mongoose.connect('mongodb://localhost/my_databaseeee');
 
 
 // app.post('/new_user',function(request,response){
@@ -31,7 +31,8 @@ var animalSchema = mongoose.Schema({
   name: String,
   age: Number,
   photo_url: String,
-  gender: String
+  gender: String,
+  human: String
 });
 
 
@@ -57,30 +58,31 @@ app.get('/animals.json', function(req, res) {
 });
 
 app.get('/animals', function (req, res) {
-  var animalArray;
+  
   Animal.find(function(err, animals) {
-    animalArray = JSON.stringify(animals);
-    console.log(animalArray)
-  });
+    
+    
+  
 
   if (req.session.first_name) {
-    res.render('animals', { currentUser: {first_name: req.session.first_name, last_name: req.session.last_name}, animalArray: animalArray});
+    res.render('animals', { currentUser: {first_name: req.session.first_name, last_name: req.session.last_name}, animalArray: animals});
   } else {
-    res.render('animals', {animalArray:animalArray})
+    res.render('animals', {animalArray:animals})
   }
-  
+  });
 });
 
 app.post('/animals', function(req, res) {
   // params.data
   // data -> new Animal
-  console.log(req.body)
-  var animal = new Animal({name: req.body.name, gender: req.body.gender, age: req.body.age, photo_url: req.body.photo_url})
+
+  var userName = req.session.first_name+" "+req.session.last_name;
+  var animal = new Animal({name: req.body.name, gender: req.body.gender, age: req.body.age, photo_url: req.body.photo_url,human:userName})
   animal.save(function (err) {
     if (err) console.log(err);
   // saved!
   })
-  res.render('animals');
+  res.redirect('animals');
 });
 
 app.post('/users', function(req, res) {
@@ -92,7 +94,7 @@ app.post('/users', function(req, res) {
     if (err) console.log(err);
   // saved!
   })
-  res.render('animals');
+  res.redirect('animals');
 });
 
 app.get('/users.json', function(req, res) {
@@ -107,7 +109,7 @@ app.get('/animals/new', function(req, res) {
   if(req.session.first_name){
     res.render('animals_form', { currentUser: {first_name: req.session.first_name, last_name: req.session.last_name}})
   } else{
-    res.redirect('/register');
+    res.redirect('/login');
   }
   
 });
@@ -143,6 +145,7 @@ app.post('/login', function(req, res) {
   if (err) return console.log('Емейл не зареєстрований або пароль невірний!');
     if (user.password == req.body.password) {
       req.session.first_name = user.first_name;
+      req.session.last_name = user.last_name;
       // req.session.user.last_name == user.last_name;
       res.redirect('/');      
     } else {

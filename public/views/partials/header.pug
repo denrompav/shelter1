@@ -10,7 +10,7 @@ header.header-fixed.clearfix
   .sociable-links
     if currentUser
       - currentUser
-      span.user-first_name.user-last_name #{currentUser.first_name}
+      span.user-first_name.user-last_name #{currentUser.first_name }        #{currentUser.last_name}
       a.btn.btn-logout(href='/logout') Logout
     else
       ul

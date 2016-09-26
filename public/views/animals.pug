@@ -18,4 +18,24 @@ html(lang='en')
         
     .animals-container
       each animal in animalArray 
-        p #{animal.name}
+        .animals-pattern
+          .animal-header
+            .animal-user--avatar
+              img(src='')
+              | Avatar
+            .animal-user--name
+              | #{animal.human}
+          .animal-pet--section
+            .animal-pet--avatar
+            .animal-pet--info
+              span.pet-name= animal.name
+              ul.pet-info
+                li
+                  p Вік
+                  p #{animal.age}
+                li
+                  p Стать
+                  p #{animal.gender}
+                li
+                  p Порода
+                  p Дворняга
