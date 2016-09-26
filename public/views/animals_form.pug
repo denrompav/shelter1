@@ -3,35 +3,42 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title Shelter
-    link(rel='stylesheet', type='text/css', href='style/main.css')
-    link(rel='stylesheet', type='text/css', href='style/register.css')
+    link(rel='stylesheet', type='text/css', href='/style/main.css')
+    link(rel='stylesheet', type='text/css', href='/style/register.css')
   body
     include partials/header.pug
     .panel-container
       .panel-heading
         h3
-          | Регістрація акаунту
+          | Реєстрація тварини
       .panel-body
         form.comment-form(method='post', action='/animals')
           .form-group
             label(for='name-field')
-              p Ім'я:
-            input#name-field.form-control(name='name', required='', placeholder='Your name')
-          .form-group
-            label(for='last_name-field')
-              p Вік:
-            input#last_name-field.form-control(name='age', placeholder='Your last name')
-          .form-group
-            label(for='last_name-field')
-              p Стать:
-            input#last_name-field.form-control(type='radio', name='gender', placeholder='Your last name')
+              p Ім'я тварини:
+            input#name-field.form-control(name='name', required='' )
+          
+          label 
+            p Вік:
+          select.form-control( name='age' size='3')
+            option 1 
+            option 2 
+            option 3 
+            option 4 
+            option 5 
+            option 6 
+
+          .form-group.radio
+            label
+              p Чоловіча
+            input.form-control.radio-btn(type='radio', name='gender', value='Чоловіча')
+            label
+              p Жіноча
+            input.form-control.radio-btn(type='radio', name='gender', value='Жіноча') 
+             
           .form-group
             label(for='last_name-field')
               p Посилання на фото:
-            input#last_name-field.form-control(name='photo_url', placeholder='Your last name')
+            input#last_name-field.form-control(name='photo_url', placeholder='URL')
           input.btn.btn-register--acaunt(type='submit', name='', value='Добавити тварину')
-      ul.hover
-        li
-          a(href='/forgot_password') Забули пароль?
-        li
-          a(href='/login') Увійти
+      

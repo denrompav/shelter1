@@ -12,8 +12,10 @@ html(lang='en')
       h6
         | Для того щоб додати свою тварину,спершу 
         a.btn-h6(href='/register') Зарегіструйтесь
-        | ,після цього
-        a.btn-h6(href='#')
-          | добавте тваринку
-        .animals-container
-          include partials/animals-pattern.pug
+        | , після цього 
+        a.btn-h6(href='/animals/new')
+          |  добавте тваринку
+        
+    .animals-container
+      each animal in animalArray 
+        p #{animal.name}

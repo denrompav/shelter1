@@ -29,6 +29,7 @@
   "devDependencies": {
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.23.1",
+    "serve-favicon": "^2.3.0",
     "style-loader": "^0.13.1"
   }
 }

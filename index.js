@@ -5,14 +5,16 @@ var fs         = require('fs');
 var session    = require('express-session');
 var mongoose   = require('mongoose');
 var url        = require('url');
+var favicon    = require('serve-favicon');
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.set('views', __dirname + "/public/views")
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(session({ secret: 'keyboard cat'}));
-mongoose.connect('mongodb://localhost/my_database');
+mongoose.connect('mongodb://localhost/my_databasee');
 
 
 // app.post('/new_user',function(request,response){
@@ -55,14 +57,25 @@ app.get('/animals.json', function(req, res) {
 });
 
 app.get('/animals', function (req, res) {
-  res.render('animals');
+  var animalArray;
+  Animal.find(function(err, animals) {
+    animalArray = JSON.stringify(animals);
+    console.log(animalArray)
+  });
+
+  if (req.session.first_name) {
+    res.render('animals', { currentUser: {first_name: req.session.first_name, last_name: req.session.last_name}, animalArray: animalArray});
+  } else {
+    res.render('animals', {animalArray:animalArray})
+  }
+  
 });
 
 app.post('/animals', function(req, res) {
   // params.data
   // data -> new Animal
   console.log(req.body)
-  var animal = new Animal({name: req.body.name, gender: req.body.gender, age: req.body.age})
+  var animal = new Animal({name: req.body.name, gender: req.body.gender, age: req.body.age, photo_url: req.body.photo_url})
   animal.save(function (err) {
     if (err) console.log(err);
   // saved!
@@ -89,8 +102,14 @@ app.get('/users.json', function(req, res) {
 });
 
 app.get('/animals/new', function(req, res) {
+
   // animal form
-  res.render('animals_form');
+  if(req.session.first_name){
+    res.render('animals_form', { currentUser: {first_name: req.session.first_name, last_name: req.session.last_name}})
+  } else{
+    res.redirect('/register');
+  }
+  
 });
 
 app.get('/animals/:id',function(req, res) {
@@ -108,6 +127,10 @@ app.get('/', function (req, res) {
 
 
 app.get('/forgot_password', function (req, res) {
+  res.render('forgot_password');
+});
+
+app.get('/animal', function (req, res) {
   res.render('forgot_password');
 });
 
